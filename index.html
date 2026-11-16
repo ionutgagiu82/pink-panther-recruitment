@@ -211,6 +211,7 @@ textarea{min-height:96px;resize:vertical}
 .msg.ok{display:block;background:#e3f4ea;color:#14532d;border:1px solid #8cc9a4}
 .msg.err{display:block;background:#fdeceb;color:#7f1d1d;border:1px solid #e8a9a4}
 .cvnote{font-size:.9rem;color:var(--muted);margin-top:1rem}
+input[type=file]{width:100%;font:inherit;font-size:.95rem;color:var(--ink);background:#fff;border:1.5px dashed #b9cbca;border-radius:10px;padding:.7rem .8rem}
 .cvreq{font-size:.92rem;color:var(--ink);background:#eef6f6;border-left:4px solid var(--teal);border-radius:8px;padding:.75rem .9rem;margin:1rem 0 0}
 .cvreq a{color:var(--teal);font-weight:600}
 
@@ -448,7 +449,12 @@ footer p{font-size:.94rem;margin-top:.9rem}
   <div class="consent"><input type="checkbox" id="c-c" name="consent" value="yes" required><label for="c-c">I agree to Pink Panther Recruitment contacting me about this request. See our <a href="/privacy.html">privacy notice</a>.</label></div>
   <button class="btn btn-teal" type="submit">Send request <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
   <div class="msg" role="status" aria-live="polite"></div>
-</form><form class="fcard reveal" data-type="WORKER REGISTRATION" data-ok="Thank you. We have your details and will be in touch soon. Please email your CV to john@pink-panther-recruitment.co.uk if you have not already." aria-labelledby="w-t">
+</form><form class="fcard reveal" action="https://formsubmit.co/john@pink-panther-recruitment.co.uk" method="POST" enctype="multipart/form-data" aria-labelledby="w-t">
+  <input type="hidden" name="_subject" value="New worker registration - Pink Panther Recruitment">
+  <input type="hidden" name="_next" value="https://pink-panther-recruitment.co.uk/thanks.html">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="type" value="WORKER REGISTRATION">
   <h3 id="w-t">Register for shifts</h3>
   <p>Looking for care or support shifts? Tell us a little about you and we will match you to the right opportunities. Weekly pay.</p>
   <div class="fg"><label for="w-n">Your name</label><input type="text" id="w-n" name="name" autocomplete="name" required></div>
@@ -467,8 +473,9 @@ footer p{font-size:.94rem;margin-top:.9rem}
     <select id="w-d" name="dbs" required><option value="">Select…</option><option>Yes, on the DBS Update Service</option><option>Yes, but not on the Update Service</option><option>No, not yet</option></select></div>
   <div class="fg"><label for="w-dl">Driving licence and own car</label>
     <select id="w-dl" name="driver" required><option value="">Select…</option><option>Licence and car</option><option>Licence, no car</option><option>No licence</option></select></div>
-  <p class="cvreq"><strong>Important:</strong> after you register, please email your CV to <a href="mailto:john@pink-panther-recruitment.co.uk?subject=CV%20-%20care%20shifts">john@pink-panther-recruitment.co.uk</a>. We cannot place you without it.</p>
-  <div class="hp" aria-hidden="true"><label>Leave empty<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+  <div class="fg"><label for="w-cv">Upload your CV (PDF or Word)</label><input type="file" id="w-cv" name="cv" accept=".pdf,.doc,.docx"></div>
+  <p class="cvreq">A CV helps us place you faster. Can't upload it now? Email it to <a href="mailto:john@pink-panther-recruitment.co.uk?subject=CV%20-%20care%20shifts">john@pink-panther-recruitment.co.uk</a>.</p>
+  <div class="hp" aria-hidden="true"><label>Leave empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
   <div class="consent"><input type="checkbox" id="w-c" name="consent" value="yes" required><label for="w-c">I agree to Pink Panther Recruitment holding my details, contacting me about suitable shifts, and keeping me on file for future opportunities. See our <a href="/privacy.html">privacy notice</a>.</label></div>
   <button class="btn btn-teal" type="submit">Register <svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
   <div class="msg" role="status" aria-live="polite"></div>
